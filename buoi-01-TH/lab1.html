@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <h1>LAB 1</h1>
+    <!-- <form>
+        <label for='a'>A</label>
+        <input type="text" id="a" name="a"><br>
+        <label for='b'>B</label>
+        <input type="text" id="b" name="b"><br>
+        <label for="sum">Sum</label>
+        <output type="text" id="sum" name="sum">
+    </form> -->
+    <script>
+        const inputA = document.createElement("input");
+        inputA.setAttribute("placeholder", "A input");
+        inputA.setAttribute("id", "numa");
+        document.body.appendChild(inputA);
+
+
+        var br = document.createElement("br");
+        document.body.appendChild(br);
+
+
+
+        const inputB = document.createElement('input');
+        inputB.setAttribute("placeholder", "B input");
+        inputB.setAttribute("id", "numb");
+        document.body.appendChild(inputB);
+
+        const Sum = document.createElement("button");
+        Sum.textContent = 'Sum';
+        document.body.appendChild(Sum);
+
+        Sum.onclick = function() {
+            var a = parseInt(inputA.value);
+            var b = parseInt(inputB.value);
+            var sum = parseInt(a + b);
+            document.body.append(sum);
+
+        }
+    </script>
+</body>
+
+
+</html>
