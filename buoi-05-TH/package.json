@@ -19,6 +19,7 @@
     "react": "18.0.0",
     "react-native": "0.69.6",
     "react-native-gesture-handler": "~2.5.0",
+    "react-native-platform-searchbar": "^1.2.3",
     "react-native-vector-icons": "^9.2.0"
   },
   "devDependencies": {
