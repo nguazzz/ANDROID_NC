@@ -1,34 +1,94 @@
-import { StatusBar } from "expo-status-bar";
-import { NavigationContainer, StackActions } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-
-import AddSubject from "./components/Panels/AddSubject";
+import { Text, View, TextInput, Button, StyleSheet } from "react-native";
+import React, { Component, useState } from "react";
 import Items from "./components/Panels/Items";
 
-const App = () => {
-  const Stack = createNativeStackNavigator();
+function App() {
+  const [valueInput, setvalueInput] = useState("");
+  const [listData, setlistData] = useState([
+    {
+      id: Math.random(),
+      inputedSubject: "Ky thuat phan mem",
+    },
+  ]);
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        panelOptions={{
-          headerShown: false,
+    <View style={styles.container}>
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          borderWidth: 1,
+          marginBottom: 20,
         }}
       >
-        <Stack.Screen name="Danh sach mon da dang ky" component={AddSubject} />
-        <Stack.Screen name="Danh sach mon hoc" component={Items} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
-export default App;
+        <TextInput
+          style={{}}
+          placeholder="Nhap ten "
+          onChangeText={(text) => setvalueInput(text)}
+          value={valueInput}
+        ></TextInput>
+        <Button
+          title={"Them " + listData.length}
+          onPress={() => {
+            listData.push({
+              id: Math.random(),
+              inputedSubject: valueInput,
+            });
+            setvalueInput("");
+          }}
+        ></Button>
+      </View>
 
+      <View style={{ flex: 1, borderWidth: 1 }}>
+        <Items
+          list={listData}
+          onDeleteApp={(id) => {
+            setlistData(listData.filter((x) => x.id !== id));
+          }}
+        />
+      </View>
+    </View>
+  );
+}
+export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    margin: 20,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10,
+  },
+  instructions: {
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5,
+  },
+  pokeListHeader: {
+    fontSize: 20,
+    color: "#fff",
+  },
+  row: {
+    width: "100%",
+    flexDirection: "row",
+    borderBottomColor: "#CCC",
+    borderBottomWidth: 1,
+    paddingVertical: 5,
+  },
+  col1: {
+    width: 40,
+  },
+  col2: {
+    flexGrow: 1,
+  },
+  col3: {
+    width: 100,
+  },
+  header: {
+    backgroundColor: "#555",
   },
 });
