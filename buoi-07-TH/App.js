@@ -11,26 +11,26 @@ export default App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  // const getImages = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://634758bf0484786c6e7f103b.mockapi.io/api/v1//Mock_Image_Demo"
-  //     );
-  //     const json = await response.json();
-  //     setData(json);
-  //   } catch (error) {
-  //     console.error(error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-  const getImages = () => {
-    fetch(
-      "https://127.0.0.1:5554/6347710bdb76843976ab77f0.mockapi.io/api/Image"
-    )
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+  const getImages = async () => {
+    try {
+      const response = await fetch(
+        "https://634758bf0484786c6e7f103b.mockapi.io/api/v1//Mock_Image_Demo"
+      );
+      const json = await response.json();
+      setData(json);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
+  // const getImages = () => {
+  //   fetch(
+  //     "https://127.0.0.1:5554/6347710bdb76843976ab77f0.mockapi.io/api/Image"
+  //   )
+  //     .then((response) => response.json())
+  //     .then((json) => console.log(json));
+  // };
   useEffect(() => {
     getImages();
   }, []);
