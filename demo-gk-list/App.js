@@ -1,18 +1,16 @@
-import React from "react";
-import { StyleSheet, TextInput, View, Button } from "react-native";
-//import your components
-import List from "./components/PokeList";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-//Export default the stateless component
-function App() {
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import List from "./components/PokeList";
+
+export default function App() {
   const [nameInput, setNameInput] = useState("");
   const [arrData, setArrData] = useState([
     {
       id: Math.random(),
-      nameValue: "Nguyen Viet Hoc",
+      nameValue: "Nguyen Phi Hoang",
     },
   ]);
-
   return (
     <View style={styles.container}>
       <View
@@ -26,12 +24,12 @@ function App() {
       >
         <TextInput
           style={{ flex: 1 }}
-          placeholder="Nhap ten "
           onChangeText={(text) => setNameInput(text)}
+          placeholder="Nhap cai gi do"
           value={nameInput}
         ></TextInput>
         <Button
-          title="Them "
+          title="Them"
           onPress={() => {
             arrData.push({
               id: Math.random(),
@@ -41,7 +39,6 @@ function App() {
           }}
         ></Button>
       </View>
-
       <View style={{ flex: 1, borderWidth: 1 }}>
         <List
           arr={arrData}
@@ -54,7 +51,6 @@ function App() {
   );
 }
 
-export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,

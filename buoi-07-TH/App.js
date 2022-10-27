@@ -19,7 +19,8 @@ export default App = () => {
       const json = await response.json();
       setData(json);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
+      <Text>Loi</Text>;
     } finally {
       setLoading(false);
     }

@@ -1,10 +1,21 @@
-import { View, Text, StyleSheet, Button } from "react-native";
-import React, { useState } from "react";
-import { FlatList, ScrollView, TextInput } from "react-native-gesture-handler";
-import AddSubject from "./AddSubject";
+//import PoreCompoent for preventing unnecesary updates.
+import React from "react";
+//import your components from react-native
+import {
+  View,
+  Image,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+} from "react-native";
+//import styles for your component
+import { StyleSheet } from "react-native";
 
-function Items(props) {
-  const { list, onDeleteApp } = props;
+import PokeCard from "../components/PokeCard";
+
+function List(props) {
+  const { arr, onDeleteApp } = props;
   return (
     <View
       style={{
@@ -48,9 +59,9 @@ function Items(props) {
 
       <View style={{ flex: 1 }}>
         <ScrollView>
-          {list.map((value, index) => {
+          {arr.map((value, index) => {
             return (
-              <Items
+              <PokeCard
                 key={value.id}
                 index={index}
                 data={value}
@@ -63,5 +74,5 @@ function Items(props) {
     </View>
   );
 }
-
-export default Items;
+export default List;
+const styles = StyleSheet.create({});
