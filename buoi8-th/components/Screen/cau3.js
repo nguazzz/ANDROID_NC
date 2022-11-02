@@ -20,13 +20,13 @@ const cau3 = ({ navigation }) => {
     }).start();
   };
 
-  const Stop = () => {
-    Animated.timing(SlideAnim, { useNativeDriver: "false" })
-      .start({
-        finished: true,
-      })
-      .start();
-  };
+  // const Stop = () => {
+  //   Animated.timing(SlideAnim, { useNativeDriver: "false" })
+  //     .start({
+  //       finished: true,
+  //     })
+  //     .start();
+  // };
   const Restart = () => {
     Animated.timing(SlideAnim, {
       toValue: 0,
@@ -37,19 +37,16 @@ const cau3 = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            // Bind opacity to animated value
-            marginLeft: SlideAnim,
-          },
-        ]}
+        style={{
+          // Bind opacity to animated value
+          marginLeft: SlideAnim,
+        }}
       >
         <Text style={styles.fadingText}>Air plane</Text>
       </Animated.View>
       <View style={styles.buttonRow}>
         <Button title="Start" onPress={Slide} />
-        <Button title="Stop" onPress={Stop} />
+        {/* <Button title="Stop" onPress={Stop} /> */}
         <Button title="Restart" onPress={Restart} />
       </View>
 
